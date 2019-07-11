@@ -1,5 +1,5 @@
 node('master') {
-    git 'https://github.com/SharifAbdulcoder/Jenkins.git'
+    git 'https://github.com/SharifAbdulcoder/Docker-python.git'
   }
 
    stage("Docker Build") {
