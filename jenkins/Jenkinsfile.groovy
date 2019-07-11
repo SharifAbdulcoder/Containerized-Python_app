@@ -8,7 +8,7 @@ node('master') {
      }
    }
 
-   stage('Terraform Apply/Plan') {
+   stage('Push') {
            dir("${WORKSPACE}/Docker_pipeline") {
              echo "##### Pushing image to Amazon ECR ####"
              sh "docker tag http-server:latest 608022717509.dkr.ecr.us-east-1.amazonaws.com/http-server:latest"
