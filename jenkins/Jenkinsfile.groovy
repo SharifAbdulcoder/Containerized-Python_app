@@ -16,9 +16,9 @@ node('master') {
            }
          }
 
-  stage('Terraform Destoy') {
-         dir("${WORKSPACE}/Docker_pipeline") {
-           echo "##### Terraform Destroying the Changes ####"
-           sh "terraform destroy  --auto-approve"
-         }
-       }
+  // stage('Terraform Destoy') {
+  //        dir("${WORKSPACE}/Docker_pipeline") {
+  //          echo "##### Terraform Destroying the Changes ####"
+  //          sh "terraform destroy  --auto-approve"
+  //        }
+  //      }
