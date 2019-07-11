@@ -11,7 +11,13 @@ node('master') {
 
 
   stage('Build Docker') {
-  dir("${WORKSPACE}/Docker-python") {
+    dir("${WORKSPACE}/Docker-python") {
       sh "docker build -t SharifAbdulcoder/app"
       }
     }
+
+   stage('Build Docker') {
+     dir("${WORKSPACE}/Docker-python") {
+       sh "docker run -dti -p 80:8080 SharifAbdulcoder/app"
+     }
+  }
