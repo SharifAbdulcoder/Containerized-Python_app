@@ -4,7 +4,7 @@ node('master') {
   }
    stage("Docker build") {
      dir("${WORKSPACE}/dp") {
-       sh "docker build -t SharifAbdulcoder/app ."
+       sh "docker build -t sharifabdulcoder/app ."
      }
    }
 
