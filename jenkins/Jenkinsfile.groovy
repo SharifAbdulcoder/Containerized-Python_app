@@ -9,7 +9,7 @@ node('master') {
    }
 
    stage('Docker push') {
-           dir("${WORKSPACE}/dp") {
+           dir("${WORKSPACE}") {
              sh "docker build -t http-server ."
            }
            dir("${WORKSPACE}/dp/") {
