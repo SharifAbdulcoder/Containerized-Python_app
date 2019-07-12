@@ -29,7 +29,7 @@ node('master') {
 
 
 
-########## something to use ##############
+// ########## something to use ##############
 //
 // stage("Docker") {
 //   dir(path) {
