@@ -20,7 +20,7 @@ node('master') {
   }
     stage('Docker run') {
            dir("${WORKSPACE}") {
-             sh "docker run -dti -p 80:8081 608022717509.dkr.ecr.us-east-1.amazonaws.com/http-server:latest"
+             sh "docker run -dti -p 81:8081 608022717509.dkr.ecr.us-east-1.amazonaws.com/http-server:latest"
            }
          }
 }
