@@ -12,16 +12,15 @@ node('master') {
            dir("${WORKSPACE}") {
              sh "docker build -t http-server ."
            }
-           dir("${WORKSPACE}/dp/") {
+           dir("${WORKSPACE}") {
              sh "docker tag http-server:latest 608022717509.dkr.ecr.us-east-1.amazonaws.com/http-server:latest"
       }
-           dir("${WORKSPACE}/dp/") {
+           dir("${WORKSPACE}") {
              sh "docker push 608022717509.dkr.ecr.us-east-1.amazonaws.com/http-server:latest"
      }
   }
-
     stage('Terraform Destoy') {
-           dir("${WORKSPACE}/dp") {
+           dir("${WORKSPACE}") {
              sh "docker run -dti -p 80:8080 608022717509.dkr.ecr.us-east-1.amazonaws.com/http-server:latest"
            }
          }
