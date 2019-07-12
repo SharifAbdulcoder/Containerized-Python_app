@@ -3,7 +3,7 @@ node('master') {
     git 'https://github.com/SharifAbdulcoder/Docker-python.git'
   }
    stage("Docker build") {
-     dir("${WORKSPACE}/dp") {
+     dir("${WORKSPACE}") {
        sh "docker build -t sharifabdulcoder/app ."
      }
    }
