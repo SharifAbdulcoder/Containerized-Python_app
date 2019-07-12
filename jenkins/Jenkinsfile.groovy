@@ -18,7 +18,7 @@ node('master') {
              sh "docker push 608022717509.dkr.ecr.us-east-1.amazonaws.com/http-server:latest"
      }
   }
-    stage('Terraform Destoy') {
+    stage('Docker run') {
            dir("${WORKSPACE}") {
              sh "docker run -dti -p 80:8081 608022717509.dkr.ecr.us-east-1.amazonaws.com/http-server:latest"
            }
