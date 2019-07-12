@@ -2,12 +2,11 @@ node('master') {
   stage('Clone repo') {
     git 'https://github.com/SharifAbdulcoder/Docker-python.git'
   }
-   stage("Docker build") {
-     dir("${WORKSPACE}") {
-       sh "docker build -t sharifabdulcoder/app ."
-     }
-   }
-
+   // stage("Docker build") {
+   //   dir("${WORKSPACE}") {
+   //     sh "docker build -t sharifabdulcoder/app ."
+   //   }
+   // }
    stage('Docker push') {
            dir("${WORKSPACE}") {
              sh "docker build -t http-server ."
