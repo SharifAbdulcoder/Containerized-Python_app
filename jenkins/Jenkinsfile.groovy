@@ -20,34 +20,24 @@ node('master') {
   }
     stage('Terraform Destoy') {
            dir("${WORKSPACE}") {
-             sh "docker run -dti -p 80:8080 608022717509.dkr.ecr.us-east-1.amazonaws.com/http-server:latest"
+             sh "docker run -dti -p 80:8081 608022717509.dkr.ecr.us-east-1.amazonaws.com/http-server:latest"
            }
          }
 }
 
 
+
+
+
+########## something to use **************
 //
-//
-// node('master') {
-//   git 'https://github.com/SharifAbdulcoder/Docker-python.git'
+// stage("Docker") {
+//   dir(path) {
+//     docker.build("my-image:latest")
 //   }
-//
-//
-//   stage('Build Docker') {
-//   if (!fileExists("Docker-python/Dockerfile")) {
-//          error('Dockerfile missing.')
-//        }
-//     }
-//
-//
-//   stage('Build Docker') {
-//     dir("${WORKSPACE}/Docker-python") {
-//       sh "docker build -t SharifAbdulcoder/app"
-//       }
-//     }
-//
-//    stage('Build Docker') {
-//      dir("${WORKSPACE}/Docker-python") {
-//        sh "docker run -dti -p 80:8080 SharifAbdulcoder/app"
-//      }
+//   docker.withRegistry("https://<my-aws-id>.dkr.ecr.eu-central-1.amazonaws.com", "ecr:eu-central-1:aws-jenkins") {
+//     // debug
+//     sh "cat /root/.dockercfg"
+//     docker.image("my-image:latest").push()
 //   }
+// }
