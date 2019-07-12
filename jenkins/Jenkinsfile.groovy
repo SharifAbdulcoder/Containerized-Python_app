@@ -22,7 +22,6 @@ node('master') {
              sh "terraform destroy  --auto-approve"
            }
          }
-       }
 
 
 }
