@@ -7,7 +7,7 @@ node('master') {
    //     sh "docker build -t sharifabdulcoder/app ."
    //   }
    // }
-   stage('Docker push') {
+   stage('Docker build & push') {
            dir("${WORKSPACE}") {
              sh "docker build -t http-server ."
            }
