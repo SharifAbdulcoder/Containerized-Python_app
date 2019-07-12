@@ -1,4 +1,5 @@
 node('master') {
+  stage('Clone repo') {
     git 'https://github.com/SharifAbdulcoder/Docker-python.git'
   }
    stage("Docker build") {
