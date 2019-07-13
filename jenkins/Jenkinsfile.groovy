@@ -1,6 +1,6 @@
 node('master') {
   stage('Clone repo') {
-    git 'https://github.com/SharifAbdulcoder/Docker-python.git'
+    git credentialsId: 'github', url: 'https://github.com/SharifAbdulcoder/Docker-python.git'
   }
 
    stage('Check awscli') {
@@ -43,7 +43,7 @@ node('master') {
   }
     stage('Docker run') {
            dir("${WORKSPACE}") {
-             sh "docker run -dti -p 81:8080 -e AWS_ACCESS_KEY_ID=AKIAY3EH2MRCRLY6ZBDI -e AWS_SECRET_ACCESS_KEY=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 608022717509.dkr.ecr.us-east-1.amazonaws.com/http-server:latest"
+             sh "docker run -dti -p 81:8080 608022717509.dkr.ecr.us-east-1.amazonaws.com/http-server:latest"
            }
          }
      }
