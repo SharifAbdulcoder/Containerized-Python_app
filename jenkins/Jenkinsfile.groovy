@@ -17,6 +17,7 @@ node('master') {
                  sudo yum install awscli -y
                  """
                }
+            }
    stage('Docker build') {
            dir("${WORKSPACE}") {
              sh "docker build -t http-server ."
