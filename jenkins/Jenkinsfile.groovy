@@ -2,11 +2,7 @@ node('master') {
   stage('Clone repo') {
     git 'https://github.com/SharifAbdulcoder/Docker-python.git'
   }
-   // stage("Docker build") {
-   //   dir("${WORKSPACE}") {
-   //     sh "docker build -t sharifabdulcoder/app ."
-   //   }
-   // }
+
    stage('Docker build & push') {
            dir("${WORKSPACE}") {
              sh "docker build -t http-server ."
@@ -15,6 +11,8 @@ node('master') {
              sh "docker tag http-server:latest 608022717509.dkr.ecr.us-east-1.amazonaws.com/http-server:latest"
       }
            dir("${WORKSPACE}") {
+             // Renewing or Creating Authorization Token to AWS ECR
+             sh "$(aws ecr get-login --no-include-email)"
              sh "docker push 608022717509.dkr.ecr.us-east-1.amazonaws.com/http-server:latest"
      }
   }
@@ -24,9 +22,6 @@ node('master') {
            }
          }
 }
-
-
-
 
 
 // ########## something to use ##############
