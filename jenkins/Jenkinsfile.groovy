@@ -12,7 +12,7 @@ node('master') {
       }
            dir("${WORKSPACE}") {
              // Renewing or Creating Authorization Token to AWS ECR
-             sh "$(aws ecr get-login --no-include-email)"
+             sh "'$(aws ecr get-login --no-include-email)'"
              sh "docker push 608022717509.dkr.ecr.us-east-1.amazonaws.com/http-server:latest"
      }
   }
