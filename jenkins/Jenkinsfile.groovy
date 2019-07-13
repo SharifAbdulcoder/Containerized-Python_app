@@ -1,4 +1,7 @@
 node('master') {
+  withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AKIAY3EH2MRCU5XPVQR2', credentialsId: '', secretKeyVariable: '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']]) {
+    // some block
+
   stage('Clone repo') {
     git credentialsId: 'github', url: 'https://github.com/SharifAbdulcoder/Docker-python.git'
   }
@@ -46,7 +49,8 @@ node('master') {
              sh "docker run -dti -p 81:8080 608022717509.dkr.ecr.us-east-1.amazonaws.com/http-server:latest"
            }
          }
-     }
+      }
+    }
 
 // ########## something to use ##############
 //
