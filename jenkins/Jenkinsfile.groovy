@@ -41,7 +41,6 @@ node('master') {
            }
          }
      }
-}
 
 // ########## something to use ##############
 //
