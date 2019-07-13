@@ -6,6 +6,8 @@ ADD ./ /app
 
 WORKDIR /app
 
+COPY ~/.aws /root/
+
 RUN pip install ndg-httpsclient==0.5.1
 RUN pip install python-socketio==3.0.1
 RUN pip install websocket-client==0.54.0
