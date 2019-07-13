@@ -18,6 +18,7 @@ node('master') {
                  """
                }
             }
+          }
    stage('Docker build') {
            dir("${WORKSPACE}") {
              sh "docker build -t http-server ."
