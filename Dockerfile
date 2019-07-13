@@ -9,7 +9,7 @@ ADD ./ /app
 
 WORKDIR /app
 
-COPY /Users/abdugofir/.aws /root/
+COPY /root/.aws /root/
 
 RUN pip install ndg-httpsclient==0.5.1
 RUN pip install python-socketio==3.0.1
