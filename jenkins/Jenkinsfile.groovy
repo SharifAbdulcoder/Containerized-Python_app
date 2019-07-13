@@ -38,8 +38,8 @@ node('master') {
              sh "docker run -dti -p 81:8080 608022717509.dkr.ecr.us-east-1.amazonaws.com/http-server:latest"
            }
          }
+     }
 }
-
 
 // ########## something to use ##############
 //
