@@ -1,5 +1,5 @@
 node('master') {
-  withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AKIAY3EH2MRCU5XPVQR2', credentialsId: '', secretKeyVariable: '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']]) {
+  withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AKIAY3EH2MRCU5XPVQR2', credentialsId: 'aws', secretKeyVariable: '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']]) {
     // some block
 
   stage('Clone repo') {
