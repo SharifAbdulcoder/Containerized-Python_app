@@ -14,7 +14,7 @@ node('master') {
               // if terraform does not installed in system stage will install the terraform
                stage('Installing AWS CLI') {
                  sh """
-                 sudo yum install awscli -y
+                 yum install awscli -y
                  """
                }
             }
