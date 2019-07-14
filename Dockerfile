@@ -2,9 +2,6 @@ FROM python:3
 
 Maintainer Abdugofir Sharif
 
-# ENV AWS_ACCESS_KEY_ID=
-# ENV AWS_SECRET_ACCESS_KEY=
-
 ADD ./ /app
 
 WORKDIR /app
