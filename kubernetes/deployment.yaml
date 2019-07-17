@@ -6,7 +6,7 @@ metadata:
   labels:
     app: resume
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: resume
@@ -18,8 +18,6 @@ spec:
         app: resume
     spec:
       containers:
-      nodeSelector:
-        gceDisk: disk-python-project
       - image: sharifabdulcoder/app:v1
         name: resume
         ports:
@@ -33,3 +31,5 @@ spec:
       - name: resume-pvc
         persistentVolumeClaim:
           claimName: resume-pvc
+      nodeSelector:
+        you.are: wrong
