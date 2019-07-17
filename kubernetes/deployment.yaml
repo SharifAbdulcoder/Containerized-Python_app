@@ -18,6 +18,8 @@ spec:
         app: resume
     spec:
       containers:
+      nodeSelector:
+        gceDisk: disk-python-project
       - image: sharifabdulcoder/app:v1
         name: resume
         ports:
@@ -27,7 +29,6 @@ spec:
         - mountPath: /mnt/resume
           name: resume-pvc
       restartPolicy: Always
-
       volumes:
       - name: resume-pvc
         persistentVolumeClaim:

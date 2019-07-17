@@ -3,10 +3,12 @@ kind: PersistentVolumeClaim
 metadata:
   name: resume-pvc
   namespace: resume
+  labels:
+    app: resume
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 5Gi
+      storage: 2Gi
   storageClassName: resume
