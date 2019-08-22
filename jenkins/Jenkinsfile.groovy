@@ -3,18 +3,18 @@ node('master') {
     // some block
 
   stage('Clone repo') {
-    git credentialsId: 'github', url: 'https://github.com/SharifAbdulcoder/Docker-python.git'
+    git credentialsId: 'github', url: 'https://github.com/SharifAbdulcoder/Containerized-Python_app.git'
   }
 
    stage('Check awscli') {
       try {
         // Trying to run terraform command
-        env.terraform  = sh returnStdout: true, script: 'aws --version'
+        env.awscli  = sh returnStdout: true, script: 'aws --version'
         echo """
         echo AWS CLI is already installed version ${env.terraform}
         """
         } catch(er) {
-              // if terraform does not installed in system stage will install the terraform
+              // if awscli does not installed in system stage will install the terraform
                stage('Installing AWS CLI') {
                  sh """
                  yum install awscli -y
@@ -22,6 +22,25 @@ node('master') {
                }
             }
           }
+
+
+    stage('Check terraform') {
+       try {
+         // Trying to run terraform command
+         env.terraform  = sh returnStdout: true, script: 'terraform --version'
+         echo """
+         echo AWS CLI is already installed version ${env.terraform}
+         """
+         } catch(er) {
+               // if terraform does not installed in system stage will install the terraform
+                stage('Installing AWS CLI') {
+                  sh """
+                  yum install terraform -y
+                  """
+                }
+             }
+           }
+
    stage('Docker build') {
            dir("${WORKSPACE}") {
              sh "docker build -t http-server ."
